@@ -60,8 +60,17 @@
       <nav id="navbar" class="navbar">
         <ul>
 
-          <li><a class="nav-link scrollto" href="/register">Register</a></li>
-          <li><a class="nav-link scrollto" href="/login">Login</a></li>
+          @if (Route::has('login'))
+            @auth
+                <li><a class="nav-link scrollto" href="/home">Dashboard</a></li>
+            @else
+                <li><a class="nav-link scrollto" href="/login">Masuk</a></li>
+                @if (Route::has('register'))                
+                <li><a class="nav-link scrollto" href="/register">Register</a></li>
+                @endif
+
+            @endauth
+          @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle d-none"></i>
       </nav><!-- .navbar -->
@@ -75,7 +84,7 @@
       <h2>Welcome to <span>APAR Inspection</span> Apps!</h2>
       <p>Sistem pengecekan APAR mengunakan QRCode!</p>
       <div class="d-flex">
-        <a href="/login" class="btn-get-started scrollto">Masuk untuk mulai pengecekan</a>
+        <a href="/home" class="btn-get-started scrollto">Masuk untuk mulai pengecekan</a>
       </div>
     </div>
   </section>
