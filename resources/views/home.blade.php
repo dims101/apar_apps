@@ -31,7 +31,7 @@
                 </div>
                 <hr class="dropdown-divider">   
                 <div class="d-grid gap-2 mt-3">
-                    <a href="#" class="btn btn-primary">Mulai inspeksi <i class="ri-share-forward-line"></i></a>
+                    <a href="/scan" class="btn btn-primary">Mulai inspeksi <i class="ri-share-forward-line"></i></a>
                 </div>
                 
             </div>
