@@ -14,7 +14,7 @@
   <!-- <li class="nav-heading">Pages</li> -->
 
   <li class="nav-item">
-    <a class="nav-link {{ $activePage == 'inventori' ? '' : 'collapsed' }}" href="users-profile.html">
+    <a class="nav-link {{ $activePage == 'inventori' ? '' : 'collapsed' }}" href="/inventori">
       <i class="bi bi-journal-text"></i>
       <span>Inventori APAR</span>
     </a>

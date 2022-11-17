@@ -16,8 +16,32 @@
             <!-- Default Card -->
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Form Inspeksi APAR</h5>
-              <p>Lakukan pengecekan APAR kemudian isi checksheet dibawah.</p>
+                <h5 class="card-title">Form Inspeksi APAR</h5>
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#petunjuk">
+                    Baca petunjuk inspeksi
+                </button> </br>
+                <div class="modal fade" id="petunjuk" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Petunjuk inspeksi APAR</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                1. Pastikan APAR tidak terhalang dan dalam kondisi siap digunakan </br>
+                                2. Pastikan APAR tidak mengalami kerusakan fisik, korosi, karat, atau cacat lainnya </br>
+                                3. Periksa tanggal kadaluarsa </br>
+                                4. Pastikan pressure dalam batas hijau </br>
+                                5. Pastikan APAR terdapat petunjuk pemakaian APAR dan tanda APAR </br>
+                                6. Bersihkan APAR apabila APAR dalam keadan kotor & berdebu</br>
+                                7. APAR jenis powder harus dibolak-balik sebanyak 3 - 5 kali
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Oke</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Vertically centered Modal-->
                 <form method="post" action="/form/store" onSubmit="return confirm('Pastikan data terisi dengan benar. \nKetuk Oke untuk menyimpan.');">
                     @csrf
                     <div class="row mb-3">
@@ -33,6 +57,13 @@
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputAPAR" value="{{$apar->qr_apar}}" readonly>
                             <input type="hidden" value ="{{$apar->id}}" name="id_apar">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputLokasi" class="col-sm-2 col-form-label">Lokasi APAR</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputLokasi" value="{{$lokasi}}">                            
                         </div>
                     </div>
 
@@ -180,7 +211,7 @@
                         </div>
                     </fieldset>
 
-                    <fieldset class="row mb-3">
+                    <!-- <fieldset class="row mb-3">
                         <legend class="col-form-label col-sm-2 pt-0">Status Pengecekan</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
@@ -196,7 +227,8 @@
                                 </label>
                             </div>
                         </div>
-                    </fieldset>
+                    </fieldset> -->
+                    <input type="hidden" name="status" value="1">
                     
                     <div class="row mb-3">
                         <label for="keterangan" class="col-sm-2 col-form-label">Keterangan tambahan</label>
@@ -214,5 +246,12 @@
           </div><!-- End Default Card -->
         </div>
       </div>
-    </section>
+    </section>   
+    @endsection
+    @section('script')
+        <script>
+            $(window).on('load',function(){
+                $('#petunjuk').modal('show');
+            });
+        </script>
     @endsection

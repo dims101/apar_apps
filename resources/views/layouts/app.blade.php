@@ -45,7 +45,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="/home" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+        <img src="/assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">APAR Inspection</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -116,7 +116,11 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
+  
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
 
+  @yield('script')
 </body>
 
 </html>

@@ -20,7 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/inventori', 'AparController@index')->name('inventori');
 Route::get('/scan', 'HomeController@scan')->name('scan');
 Route::get('/form/{apar}', 'FormController@create');
 Route::post('/validasi', 'HomeController@validasi')->name('validasi');
 Route::post('/form/store', 'FormController@store');
+Route::post('/apar/store', 'AparController@store');

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Form;
 use App\Apar;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class FormController extends Controller
+class AparController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,9 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
+        $apar = Apar::all();
+        $today = Carbon::now();
+        return view('apar.index',compact('apar','today'));
     }
 
     /**
@@ -23,11 +25,9 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Apar $apar)
-    {   
-        $lokasi = $apar->lokasi;
-        return view('form.create',compact('apar','lokasi'));
-        // return view('home');
+    public function create()
+    {
+        //
     }
 
     /**
@@ -37,22 +37,24 @@ class FormController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        // return $request;die;
-        Form::create($request->all());
-        Apar::update([
-            'lokasi' => $request->lokasi
-        ]);
-        return redirect('/home')->with('message',"Berhasil menyimpan data inspeksi!");
+    {
+        $warn_date = new Carbon($request->exp_date);
+        $warn_date = $warn_date->subMonths(3)->format('Y-m-d');
+        
+        $request->request->add(['warn_date' => $warn_date]);
+        // return $request;
+        Apar::create($request->all());
+
+        return redirect('/inventori')->with('message','Berhasil menambahkan data APAR!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Form  $form
+     * @param  \App\Apar  $apar
      * @return \Illuminate\Http\Response
      */
-    public function show(Form $form)
+    public function show(Apar $apar)
     {
         //
     }
@@ -60,10 +62,10 @@ class FormController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Form  $form
+     * @param  \App\Apar  $apar
      * @return \Illuminate\Http\Response
      */
-    public function edit(Form $form)
+    public function edit(Apar $apar)
     {
         //
     }
@@ -72,10 +74,10 @@ class FormController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Form  $form
+     * @param  \App\Apar  $apar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Form $form)
+    public function update(Request $request, Apar $apar)
     {
         //
     }
@@ -83,10 +85,10 @@ class FormController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Form  $form
+     * @param  \App\Apar  $apar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Form $form)
+    public function destroy(Apar $apar)
     {
         //
     }

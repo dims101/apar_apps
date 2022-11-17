@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'activePage' => 'scan',
-    'titlePage' => __('Scan QR'),
+    'titlePage' => __('Scan QR APAR'),
 ])
 
 @section('content')
@@ -74,7 +74,7 @@
 
         let html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {
-                fps: 10,
+                fps: 2,
                 qrbox: {
                     width: 150,
                     height: 150
