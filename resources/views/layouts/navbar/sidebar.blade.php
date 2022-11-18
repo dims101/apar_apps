@@ -15,10 +15,17 @@
 
   <li class="nav-item">
     <a class="nav-link {{ $activePage == 'inventori' ? '' : 'collapsed' }}" href="/inventori">
-      <i class="bi bi-journal-text"></i>
-      <span>Inventori APAR</span>
+      <i class="bi bi-archive-fill"></i>
+      <span>Inventori</span>
     </a>
-  </li><!-- End Profile Page Nav -->
+  </li><!-- End Inventori Page Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link {{ $activePage == 'inspeksi' ? '' : 'collapsed' }}" href="/inspeksi">
+      <i class="bi bi-journal-text"></i>
+      <span>Data Inspeksi</span>
+    </a>
+  </li><!-- End Data Inspeksi Page Nav -->
   
   <li class="nav-item">
     <a class="nav-link collapsed" onclick="event.preventDefault();

@@ -15,7 +15,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
+        return view('inspeksi.index');
     }
 
     /**

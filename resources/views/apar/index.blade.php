@@ -317,7 +317,10 @@
     </script>
     <script>
             $(window).on('load',function(){
-                $('#popup').modal('show');
+                var data = {{count($expired)}};
+                if(data > 0){
+                    $('#popup').modal('show');
+                }
             });
             $("#edit").on("hidden.bs.modal", function () {
                 $('.identitas').removeClass('is-valid').removeClass('is-invalid');
