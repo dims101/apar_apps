@@ -66,6 +66,7 @@
                                     data-bs-jenis="{{$a->jenis}}"
                                     data-bs-lokasi="{{$a->lokasi}}"
                                     data-bs-exp="{{$a->exp_date}}"
+                                    data-bs-il="{{$a->id_lokasi}}"
                                     data-bs-id="{{$a->id}}"
                                 >
                                     <td>{{$a->qr_apar}}</td>
@@ -115,6 +116,13 @@
                             <div class="form-floating">
                                 <input type="text" name="jenis" class="form-control" id="jenis" placeholder="Masukan jenis APAR" required>
                                 <label for="jenis">Masukan jenis APAR</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" name="id_lokasi" class="form-control" id="id_lokasi" placeholder="Masukan No. lokasi APAR" required>
+                                <label for="id_lokasi">Masukan No. lokasi APAR</label>
                             </div>
                         </div>
 
@@ -190,6 +198,13 @@
                         </div>
 
                         <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" name="id_lokasi" class="form-control" id="id_lokasi" placeholder="Masukan No. lokasi APAR" required>
+                                <label for="id_lokasi">Masukan No. lokasi APAR</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
                             <label for="exp_date" class="col-form-label">Expired date</label>
                             <div class="col-sm-12">
                                 <input id="exp_date" name="exp_date" type="date" class="form-control" required>
@@ -255,6 +270,7 @@
         var jenis = button.getAttribute('data-bs-jenis')
         var lokasi = button.getAttribute('data-bs-lokasi')
         var exp = button.getAttribute('data-bs-exp')
+        var il = button.getAttribute('data-bs-il')
         var id = button.getAttribute('data-bs-id')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
@@ -266,6 +282,7 @@
         var inputJenis = modalEdit.querySelector('.modal-body #jenis')
         var inputLokasi = modalEdit.querySelector('.modal-body #lokasi')
         var inputExp = modalEdit.querySelector('.modal-body #exp_date')
+        var inputIl = modalEdit.querySelector('.modal-body #id_lokasi')
         var inputId = modalEdit.querySelector('.modal-body #id')
 
         modalTitle.textContent = 'Edit data ' + qr
@@ -274,6 +291,7 @@
         inputJenis.value = jenis
         inputLokasi.value = lokasi
         inputExp.value = exp
+        inputIl.value = il
         inputId.value = id
         })
     </script>
