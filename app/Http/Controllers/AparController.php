@@ -17,7 +17,10 @@ class AparController extends Controller
     {
         $apar = Apar::all();
         $today = Carbon::now();
-        return view('apar.index',compact('apar','today'));
+        $expired = Apar::where('warn_date','<',$today)
+                    ->get();
+        // return $warning;
+        return view('apar.index',compact('apar','today','expired'));
     }
 
     /**
@@ -65,9 +68,22 @@ class AparController extends Controller
      * @param  \App\Apar  $apar
      * @return \Illuminate\Http\Response
      */
-    public function edit(Apar $apar)
+    public function edit(Request $request)
     {
-        //
+        $id_apar = Apar::where('qr_apar',$request->qr_apar)->first();
+        $warn_date = new Carbon($request->exp_date);
+        $warn_date = $warn_date->subMonths(3)->format('Y-m-d');
+        // return $id_apar->id;die;
+        $apar = Apar::where('id',$id_apar->id)
+                        ->update([
+                            'qr_apar' => $request->qr_apar,
+                            'merk' => $request->merk,
+                            'jenis' => $request->jenis,
+                            'lokasi' => $request->lokasi,
+                            'warn_date' => $warn_date,
+                            'exp_date' => $request->exp_date,
+                        ]);
+        return redirect('/inventori')->with('message','Berhasil mengedit data APAR!');
     }
 
     /**
@@ -88,8 +104,29 @@ class AparController extends Controller
      * @param  \App\Apar  $apar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Apar $apar)
+    public function destroy(Request $request)
     {
-        //
+        Apar::destroy($request->id);
+
+        return redirect('/inventori')->with('message','Berhasil menghapus APAR!');
+    }
+
+    public function cekid(Request $request)
+    {
+        $apar = Apar::where('qr_apar',$request->qr_apar)
+                    ->first();
+        
+        if(is_null($apar)){
+            return response()->json([
+                "status" => 1,
+                "message" => 'Identitas dapat digunakan'
+            ],200);
+        } else {
+            return response()->json([
+                "status" => 0,
+                "message" => 'Identitas sudah digunakan'
+            ],200);
+        }
+        
     }
 }

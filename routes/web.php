@@ -26,3 +26,6 @@ Route::get('/form/{apar}', 'FormController@create');
 Route::post('/validasi', 'HomeController@validasi')->name('validasi');
 Route::post('/form/store', 'FormController@store');
 Route::post('/apar/store', 'AparController@store');
+Route::post('/cekid', 'AparController@cekid');
+Route::patch('/apar/edit', 'AparController@edit');
+Route::delete('/apar/delete', 'AparController@destroy');
