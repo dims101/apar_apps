@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/inventori', 'AparController@index')->name('inventori');
 Route::get('/inspeksi', 'FormController@index')->name('inspeksi');
 Route::put('/inspeksi/update', 'FormController@update');
+Route::delete('/inspeksi/delete', 'FormController@destroy');
 Route::get('/scan', 'HomeController@scan')->name('scan');
 Route::get('/form/{apar}', 'FormController@create');
 Route::post('/validasi', 'HomeController@validasi')->name('validasi');

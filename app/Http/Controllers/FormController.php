@@ -117,7 +117,7 @@ class FormController extends Controller
      * @param  \App\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Form $form)
+    public function destroy(Request $request)
     {
         Form::destroy($request->id);
 

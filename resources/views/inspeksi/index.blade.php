@@ -196,7 +196,7 @@
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             </form>
-                            <form class="d-inline" action="/form/delete" method="post">
+                            <form class="d-inline" action="/inspeksi/delete" method="post">
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="id" class="id2">
