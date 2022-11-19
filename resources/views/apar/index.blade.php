@@ -243,7 +243,7 @@
                     </div>         
                     <hr>                  
                     <div class="container">
-                        <h6>APAR mendekati kadaluwarsa :</h6>
+                        <h6>Identitas dan lokasi APAR:</h6>
                         <ol class="list-group list-group-numbered list-group-flush">
                             @foreach($expired as $e)
                             <li class="list-group-item">{{$e->qr_apar}} <i class="bx bxs-right-arrow-square"> </i> Lokasi : {{$e->lokasi}}</li>

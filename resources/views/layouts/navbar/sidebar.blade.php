@@ -23,9 +23,16 @@
   <li class="nav-item">
     <a class="nav-link {{ $activePage == 'inspeksi' ? '' : 'collapsed' }}" href="/inspeksi">
       <i class="bi bi-journal-text"></i>
-      <span>Data Inspeksi</span>
+      <span>Inspeksi</span>
     </a>
   </li><!-- End Data Inspeksi Page Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link {{ $activePage == 'akun' ? '' : 'collapsed' }}" href="/akun">
+      <i class="bx bxs-user-rectangle"></i>
+      <span>Akun</span>
+    </a>
+  </li><!-- End Data User Page Nav -->
   
   <li class="nav-item">
     <a class="nav-link collapsed" onclick="event.preventDefault();

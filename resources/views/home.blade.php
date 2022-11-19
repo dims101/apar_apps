@@ -17,17 +17,20 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Dashboard</h5>
-                <div class="alert alert-info">
-                    Total APAR :
+                <div class="alert alert-primary">
+                    Total APAR : {{$data['total']}} tabung
                 </div>
                 <div class="alert alert-success">
-                    APAR diperiksa :
+                    APAR diperiksa : {{$data['sudah']}} tabung
+                </div>
+                <div class="alert alert-info">
+                    APAR belum diperiksa : {{$data['belum']}} tabung
                 </div>
                 <div class="alert alert-warning">
-                    APAR mendekati kadaluarsa :
+                    APAR mendekati kadaluarsa : {{$data['warning']}} tabung
                 </div>
                 <div class="alert alert-danger">
-                    APAR kadaluarsa :
+                    APAR kadaluarsa : {{$data['expired']}} tabung
                 </div>
                 <hr class="dropdown-divider">   
                 <div class="d-grid gap-2 mt-3">

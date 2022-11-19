@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Apar;
+use App\Form;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -24,7 +26,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $now = Carbon::now();
+        $month = $now->month;
+        $total = Apar::all()->count();
+        $sudah = Form::whereMonth('created_at',$month)
+                        ->get()->count();
+        $belum = $total - $sudah;
+        $warning = Apar::where('warn_date','<',$now)
+                            ->where('exp_date','>',$now)
+                            ->get()->count();
+        $expired = Apar::where('exp_date','<',$now)
+                        ->get()->count();
+        $data = compact('total','sudah','belum','warning','expired');
+        return view('home',compact('data'));
     }
 
     public function scan()

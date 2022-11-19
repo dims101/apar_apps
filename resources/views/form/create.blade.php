@@ -71,13 +71,13 @@
                         <legend class="col-form-label col-sm-2 pt-0">Keadaan Tuas:</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tuas" id="tuasOK" value="1" checked>
+                                <input class="form-check-input" type="radio" name="tuas" id="tuasOK" value="OK" checked>
                                 <label class="form-check-label" for="tuasOK">
                                     OK
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tuas" id="tuasNG" value="0">
+                                <input class="form-check-input" type="radio" name="tuas" id="tuasNG" value="NG">
                                 <label class="form-check-label" for="tuasNG">
                                     NG
                                 </label>
@@ -89,13 +89,13 @@
                         <legend class="col-form-label col-sm-2 pt-0">Keadaan Segel Tuas:</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="segel_tuas" id="segel_tuasOK" value="1" checked>
+                                <input class="form-check-input" type="radio" name="segel_tuas" id="segel_tuasOK" value="OK" checked>
                                 <label class="form-check-label" for="segel_tuasOK">
                                     OK
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="segel_tuas" id="segel_tuasNG" value="0">
+                                <input class="form-check-input" type="radio" name="segel_tuas" id="segel_tuasNG" value="NG">
                                 <label class="form-check-label" for="segel_tuasNG">
                                     NG
                                 </label>
@@ -107,13 +107,13 @@
                         <legend class="col-form-label col-sm-2 pt-0">Keadaan Pin:</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pin" id="pinOK" value="1" checked>
+                                <input class="form-check-input" type="radio" name="pin" id="pinOK" value="OK" checked>
                                 <label class="form-check-label" for="pinOK">
                                     OK
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pin" id="pinNG" value="0">
+                                <input class="form-check-input" type="radio" name="pin" id="pinNG" value="NG">
                                 <label class="form-check-label" for="pinNG">
                                     NG
                                 </label>
@@ -125,13 +125,13 @@
                         <legend class="col-form-label col-sm-2 pt-0">Keadaan Selang:</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="selang" id="selangOK" value="1" checked>
+                                <input class="form-check-input" type="radio" name="selang" id="selangOK" value="OK" checked>
                                 <label class="form-check-label" for="selangOK">
                                     OK
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="selang" id="selangNG" value="0">
+                                <input class="form-check-input" type="radio" name="selang" id="selangNG" value="NG">
                                 <label class="form-check-label" for="selangNG">
                                     NG
                                 </label>
@@ -143,13 +143,13 @@
                         <legend class="col-form-label col-sm-2 pt-0">Keadaan Nozzle:</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="nozzle" id="nozzleOK" value="1" checked>
+                                <input class="form-check-input" type="radio" name="nozzle" id="nozzleOK" value="OK" checked>
                                 <label class="form-check-label" for="nozzleOK">
                                     OK
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="nozzle" id="nozzleNG" value="0">
+                                <input class="form-check-input" type="radio" name="nozzle" id="nozzleNG" value="NG">
                                 <label class="form-check-label" for="nozzleNG">
                                     NG
                                 </label>
@@ -161,13 +161,13 @@
                         <legend class="col-form-label col-sm-2 pt-0">Pressure APAR:</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pressure" id="pressureOK" value="1" checked>
+                                <input class="form-check-input" type="radio" name="pressure" id="pressureOK" value="OK" checked>
                                 <label class="form-check-label" for="pressureOK">
                                     OK
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pressure" id="pressureNG" value="0">
+                                <input class="form-check-input" type="radio" name="pressure" id="pressureNG" value="NG">
                                 <label class="form-check-label" for="pressureNG">
                                     NG
                                 </label>
@@ -179,13 +179,13 @@
                         <legend class="col-form-label col-sm-2 pt-0">Keadaan Tabung:</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tabung" id="tabungOK" value="1" checked>
+                                <input class="form-check-input" type="radio" name="tabung" id="tabungOK" value="OK" checked>
                                 <label class="form-check-label" for="tabungOK">
                                     OK
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tabung" id="tabungNG" value="0">
+                                <input class="form-check-input" type="radio" name="tabung" id="tabungNG" value="NG">
                                 <label class="form-check-label" for="tabungNG">
                                     NG
                                 </label>
@@ -197,13 +197,13 @@
                         <legend class="col-form-label col-sm-2 pt-0">Keadaan QRCode</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="barcode" id="barcodeOK" value="1" checked>
+                                <input class="form-check-input" type="radio" name="barcode" id="barcodeOK" value="OK" checked>
                                 <label class="form-check-label" for="barcodeOK">
                                     OK
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="barcode" id="barcodeNG" value="0">
+                                <input class="form-check-input" type="radio" name="barcode" id="barcodeNG" value="NG">
                                 <label class="form-check-label" for="barcodeNG">
                                     NG
                                 </label>
@@ -215,20 +215,20 @@
                         <legend class="col-form-label col-sm-2 pt-0">Status Pengecekan</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="status" id="statusOK" value="1" checked>
+                                <input class="form-check-input" type="radio" name="status" id="statusOK" value="OK" checked>
                                 <label class="form-check-label" for="statusOK">
                                     OK
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="status" id="statusNG" value="0">
+                                <input class="form-check-input" type="radio" name="status" id="statusNG" value="NG">
                                 <label class="form-check-label" for="statusNG">
                                     NG
                                 </label>
                             </div>
                         </div>
                     </fieldset> -->
-                    <input type="hidden" name="status" value="1">
+                    <input type="hidden" name="status" value="OK">
                     
                     <div class="row mb-3">
                         <label for="keterangan" class="col-sm-2 col-form-label">Keterangan tambahan</label>
