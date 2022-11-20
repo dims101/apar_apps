@@ -61,15 +61,15 @@
             <span class="badge bg-primary badge-number angka-apar"></span>
           </a><!-- End Notification Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" id="notifikasi">
+          <ul style="max-height:520px" class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications overflow-auto" id="notifikasi">
             <li class="dropdown-header jumlah-apar">
 
               <!-- <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a> -->
             </li>
             <li>
               <hr class="dropdown-divider">
-            </li>            
-
+            </li>      
+            <!-- diisini untuk atur scrollable notif -->
           </ul><!-- End Notification Dropdown Items -->
 
         </li><!-- End Notification Nav -->
@@ -123,7 +123,7 @@
               },  
           success: function(response){
               if(response.status==1){
-                console.log(response.data[0].qr_apar);
+                
                 $('.angka-apar').text(response.jumlah);
                 $('.jumlah-apar').text('APAR yang belum diperiksa sebanyak '+response.jumlah+' tabung');
                 
