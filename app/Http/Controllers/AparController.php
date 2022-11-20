@@ -45,13 +45,12 @@ class AparController extends Controller
      */
     public function store(Request $request)
     {
+        return $request;
         $warn_date = new Carbon($request->exp_date);
         $warn_date = $warn_date->subMonths(3)->format('Y-m-d');
         
         $request->request->add(['warn_date' => $warn_date]);
-        // return $request;
         Apar::create($request->all());
-
         return redirect('/inventori')->with('message','Berhasil menambahkan data APAR!');
     }
 
@@ -74,11 +73,10 @@ class AparController extends Controller
      */
     public function edit(Request $request)
     {
-        $id_apar = Apar::where('qr_apar',$request->qr_apar)->first();
+        $id_apar = $request->id;
         $warn_date = new Carbon($request->exp_date);
         $warn_date = $warn_date->subMonths(3)->format('Y-m-d');
-        // return $id_apar->id;die;
-        $apar = Apar::where('id',$id_apar->id)
+        $apar = Apar::where('id',$id_apar)
                         ->update([
                             'qr_apar' => $request->qr_apar,
                             'merk' => $request->merk,

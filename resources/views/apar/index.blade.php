@@ -172,6 +172,7 @@
                             <div class="form-floating">
                                 <input type="text" name="qr_apar" class="form-control identitas" id="identitas" placeholder="Masukan identitas APAR" required>
                                 <label for="identitas">Masukan identitas APAR</label>
+                                <input type="hidden" name="id" id="id2">
                             </div>                            
                         </div>
                         <div class="validasi d-block">
@@ -246,7 +247,7 @@
                         <h6>Identitas dan lokasi APAR:</h6>
                         <ol class="list-group list-group-numbered list-group-flush">
                             @foreach($expired as $e)
-                            <li class="list-group-item">{{$e->qr_apar}} <i class="bx bxs-right-arrow-square"> </i> Lokasi : {{$e->lokasi}}</li>
+                            <li class="list-group-item">{{$e->qr_apar}} <i class="bx bxs-right-arrow-square"> </i> {{$e->lokasi}}</li>
                             @endforeach
                         </ol>
                 </div>
@@ -272,6 +273,7 @@
         var exp = button.getAttribute('data-bs-exp')
         var il = button.getAttribute('data-bs-il')
         var id = button.getAttribute('data-bs-id')
+        var id2 = button.getAttribute('data-bs-id')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
         //
@@ -284,6 +286,7 @@
         var inputExp = modalEdit.querySelector('.modal-body #exp_date')
         var inputIl = modalEdit.querySelector('.modal-body #id_lokasi')
         var inputId = modalEdit.querySelector('.modal-body #id')
+        var inputId2 = modalEdit.querySelector('.modal-body #id2')
 
         modalTitle.textContent = 'Edit data ' + qr
         inputIdentitas.value = qr
@@ -293,6 +296,7 @@
         inputExp.value = exp
         inputIl.value = il
         inputId.value = id
+        inputId2.value = id2
         })
     </script>
     <script>

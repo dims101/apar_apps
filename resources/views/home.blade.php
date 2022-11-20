@@ -17,6 +17,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Dashboard</h5>
+              <p>Ringkasan inspeksi bulan ini:</p>
                 <div class="alert alert-primary">
                     Total APAR : {{$data['total']}} tabung
                 </div>
