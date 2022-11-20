@@ -130,7 +130,7 @@
                 for (let i = 0; i < response.data.length; i++) {
                   $('.nama-apar').append(response.data[i].qr_apar);
                   $('.lokasi-apar').append(response.data[i].lokasi);
-                  $('#notifikasi').append('<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>'+response.data[i].qr_apar+'</h4><p>'+response.data[i].lokasi+'</p></div></li>');
+                  $('#notifikasi').append('<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>'+response.data[i].qr_apar+'</h4><p>'+response.data[i].lokasi+'</p></div></li><hr class="dropdown-divider">');
                 }
                 
               }             
