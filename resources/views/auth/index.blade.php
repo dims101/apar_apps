@@ -119,7 +119,7 @@
                                         @csrf
                                         @method('put')
                                         @if($a->level == 'Admin')
-                                        <button class="btn btn-sm btn-secondary" disabled>Administrator</button>
+                                        <button class="btn btn-sm btn-secondary" disabled>Admin</button>
                                         @else
                                         <button class="btn btn-sm btn-success" type="submit">Jadikan Admin</button>
                                         @endif
