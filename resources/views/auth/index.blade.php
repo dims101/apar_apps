@@ -115,13 +115,13 @@
                                 <td>{{$a->nama}}</td>
                                 <td>{{$a->penneng}}</td>
                                 <td>
-                                    <form class="d-inline" action="/akun/makeadmin/{{$a->id}}" method="post">
+                                    <form class="d-inline" action="/akun/makeadmin/{{$a->id}}"  method="post">
                                         @csrf
                                         @method('put')
                                         @if($a->level == 'Admin')
                                         <button class="btn btn-sm btn-secondary" disabled>Admin</button>
                                         @else
-                                        <button class="btn btn-sm btn-success" type="submit">Jadikan Admin</button>
+                                        <button class="btn btn-sm btn-success" onClick="return confirm('Yakin untuk melanjutkan?');" type="submit">Jadikan Admin</button>
                                         @endif
                                     </form>
                                 </td>
