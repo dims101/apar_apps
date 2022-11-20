@@ -56,12 +56,13 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {   
-        // return $request;die;
+        
         Form::create($request->all());
-        Apar::update([
-            'lokasi' => $request->lokasi
-        ]);
-        return redirect('/inventori')->with('message',"Berhasil menambah data inspeksi!");
+        Apar::where('id',$request->id_apar)
+                ->update([
+                    'lokasi' => $request->lokasi
+                ]);
+        return redirect('/inspeksi')->with('message',"Berhasil menambah data inspeksi!");
     }
 
     /**

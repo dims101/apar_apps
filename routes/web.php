@@ -20,6 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/akun', 'UserController@index')->name('akun');
+Route::put('/akun/{user}', 'UserController@update');
+Route::put('/akun/makeadmin/{user}', 'UserController@makeadmin');
 Route::get('/inventori', 'AparController@index')->name('inventori');
 Route::get('/inspeksi', 'FormController@index')->name('inspeksi');
 Route::put('/inspeksi/update', 'FormController@update');

@@ -16,10 +16,12 @@
             <!-- Default Card -->
           <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Form Inspeksi APAR</h5>
-                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#petunjuk">
-                    Baca petunjuk inspeksi
-                </button> </br>
+                <div class="row">
+                    <h5 class="card-title">Form Inspeksi APAR</h5>
+                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#petunjuk">
+                        Baca petunjuk inspeksi
+                    </button>
+                </div>
                 <div class="modal fade" id="petunjuk" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -42,6 +44,7 @@
                         </div>
                     </div>
                 </div><!-- End Vertically centered Modal-->
+                <br>
                 <form method="post" action="/form/store" onSubmit="return confirm('Pastikan data terisi dengan benar. \nKetuk Oke untuk menyimpan.');">
                     @csrf
                     <div class="row mb-3">
@@ -63,7 +66,7 @@
                     <div class="row mb-3">
                         <label for="inputLokasi" class="col-sm-2 col-form-label">Lokasi APAR</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputLokasi" value="{{$lokasi}}">                            
+                            <input type="text" name="lokasi" class="form-control" id="inputLokasi" value="{{$lokasi}}">                            
                         </div>
                     </div>
 

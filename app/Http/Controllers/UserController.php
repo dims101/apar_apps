@@ -15,7 +15,18 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::find(auth()->user()->id);
+        $alluser = User::all();
+        return view('auth.index',compact('user','alluser'));
+    }
+
+    public function makeadmin(User $user){
+        
+        User::where('id',$user->id)
+                ->update([
+                    'level'=>'Admin'
+                ]);
+        return redirect('/akun')->with('admin', $user->nama.' telah menjadi Admin');
     }
 
     /**
@@ -94,7 +105,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        User::where('id',$user->id)
+                ->update([
+                    'nama'=>$request->nama,
+                    'penneng'=>$request->penneng,
+                    'dept'=>$request->dept,
+                    'group'=>$request->group,
+                ]);
+        if($request->password != null){
+            $password = Hash::make($request->password);
+            User::where('id',$user->id)
+                ->update([
+                    'password'=>$password
+                ]);
+        }
+        return redirect('/akun')->with('message','Berhasil mengubah akun');
     }
 
     /**

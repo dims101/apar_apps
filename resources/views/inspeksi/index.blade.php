@@ -194,13 +194,17 @@
                         </div>                       
                         <hr>
                         <div class="text-center">
+                            @if(auth()->user()->level == 'Admin')
                             <button type="submit" class="btn btn-primary">Simpan</button>
+                            @endif
                             </form>
                             <form class="d-inline" action="/inspeksi/delete" method="post">
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="id" class="id2">
+                                @if(auth()->user()->level == 'Admin')
                                 <button type="submit" class="btn btn-danger" onClick="return confirm('Yakin untuk menghapus?');">Hapus</button>
+                                @endif
                             </form>
                             <!-- Tombol buat memo -->
                             

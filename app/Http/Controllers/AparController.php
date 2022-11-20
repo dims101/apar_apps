@@ -56,7 +56,7 @@ class AparController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     * -am 
      * @param  \App\Apar  $apar
      * @return \Illuminate\Http\Response
      */

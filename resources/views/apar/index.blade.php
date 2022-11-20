@@ -21,9 +21,11 @@
                                 <h5 class="card-title">Inventori APAR</h5>                    
                             </div>
                             <div class="col text-end">
+                                @if(auth()->user()->level == 'Admin')
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#tambah">
                                     <i class="bx bxs-plus-circle"></i> Tambah
-                                </button> </br>                                
+                                </button> </br>   
+                                @endif                             
                             </div>
                         </div>
                         <!-- alert with icon -->
@@ -141,8 +143,10 @@
                         </div>
                         <hr>
                         <div class="text-center">
+                        @if(auth()->user()->level == 'Admin')
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
+                        @endif
                         </div>
                     </form>
                 </div>
@@ -213,14 +217,18 @@
                         </div>
                         <hr>
                         <div class="text-center">
+                        @if(auth()->user()->level == 'Admin')
                             <button type="submit" class="btn btn-primary">Simpan</button>
+                            @endif
                             </form>
+                            @if(auth()->user()->level == 'Admin')
                             <form class="d-inline" action="/apar/delete" method="post">
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="id" id="id">
                                 <button type="submit" class="btn btn-danger" onClick="return confirm('Yakin untuk menghapus?');">Hapus</button>
                             </form>
+                            @endif
                         </div>
                     
                 </div>
