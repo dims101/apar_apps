@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/notifikasi', 'FormController@notifikasi');
 Route::get('/akun', 'UserController@index')->name('akun');
 Route::put('/akun/{user}', 'UserController@update');
 Route::put('/akun/makeadmin/{user}', 'UserController@makeadmin');

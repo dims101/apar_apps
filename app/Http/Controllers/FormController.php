@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Form;
 use App\Apar;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
@@ -123,5 +124,22 @@ class FormController extends Controller
         Form::destroy($request->id);
 
         return redirect('/inspeksi')->with('message','Berhasil menghapus data inspeksi!');
+    }
+    public function notifikasi(){
+
+        $now = Carbon::now();
+        $apar_diperiksa = Apar::leftjoin('forms','apars.id','forms.id_apar')
+                    ->where('status','OK')
+                    ->whereMonth('forms.created_at',$now->month)
+                    ->pluck('apars.id');
+        $apar_belum = Apar::whereNotIn('id',$apar_diperiksa)
+                        ->get();
+        $jumlah= $apar_belum->count();
+        return response()->json([
+            'status' => 1,
+            'data'=> $apar_belum,
+            'jumlah' => $jumlah
+
+        ]);
     }
 }

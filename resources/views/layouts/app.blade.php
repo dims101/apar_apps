@@ -58,27 +58,17 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">4</span>
+            <span class="badge bg-primary badge-number angka-apar"></span>
           </a><!-- End Notification Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" id="notifikasi">
+            <li class="dropdown-header jumlah-apar">
+
+              <!-- <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a> -->
             </li>
             <li>
               <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-            
+            </li>            
 
           </ul><!-- End Notification Dropdown Items -->
 
@@ -121,6 +111,35 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   @yield('script')
+  <script>
+    $(document).ready(function(){        
+      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+      $.ajax({
+          url: '/notifikasi',
+          type: 'post',
+          data: {
+                  _methode : "POST",
+                  _token: CSRF_TOKEN, 
+              },  
+          success: function(response){
+              if(response.status==1){
+                console.log(response.data[0].qr_apar);
+                $('.angka-apar').text(response.jumlah);
+                $('.jumlah-apar').text('APAR yang belum diperiksa sebanyak '+response.jumlah+' tabung');
+                
+                for (let i = 0; i < response.data.length; i++) {
+                  $('.nama-apar').append(response.data[i].qr_apar);
+                  $('.lokasi-apar').append(response.data[i].lokasi);
+                  $('#notifikasi').append('<li class="notification-item"><i class="bi bi-exclamation-circle text-warning"></i><div><h4>'+response.data[i].qr_apar+'</h4><p>'+response.data[i].lokasi+'</p></div></li>');
+                }
+                
+              }             
+          }
+      });
+
+
+    });
+  </script>
 </body>
 
 </html>
