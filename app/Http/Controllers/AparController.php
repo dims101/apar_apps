@@ -45,7 +45,6 @@ class AparController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
         $warn_date = new Carbon($request->exp_date);
         $warn_date = $warn_date->subMonths(3)->format('Y-m-d');
         

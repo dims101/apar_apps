@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Form;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Apar;
+use App\Exports\InspeksiExport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -20,6 +22,12 @@ class FormController extends Controller
      */
     public function index()
     {
+        $tanggalEkspor = Form::orderBy('created_at','DESC')->pluck('created_at');
+        $tanggalEkspor = collect($tanggalEkspor)->map(function ($item, $key) {
+            return date('F-Y', strtotime($item));
+        })->all();
+        $tanggalEkspor = array_unique($tanggalEkspor);
+        // return $tanggalEkspor;
         $form = Form::select(
                             'forms.*',
                             'apars.id_lokasi',
@@ -34,7 +42,12 @@ class FormController extends Controller
                         ->leftjoin('users','forms.id_user','=','users.id')
                         ->get();
         // return $form;die;
-        return view('inspeksi.index',compact('form'));
+        return view('inspeksi.index',compact('form','tanggalEkspor'));
+    }
+    public function ekspor(Request $request)
+    {
+        $tanggal = $request->tanggalEkspor;
+        return Excel::download(new InspeksiExport($tanggal), 'Inspeksi - '.$tanggal.'.xlsx');
     }
 
     /**

@@ -16,7 +16,18 @@
             <!-- Default Card -->
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Data Inspeksi APAR</h5>
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="card-title">Data Inspeksi APAR</h5>
+                    </div>
+                    <div class="col text-end">
+                        @if(auth()->user()->level == 'Admin')
+                            <button class="btn btn-sm btn-success "  data-bs-toggle="modal" data-bs-target="#modalExport">
+                                <i class="bx bxs-file-export"></i> Ekspor ke Excell
+                            </button>
+                        @endif
+                    </div>
+                </div>
               <!-- alert with icon -->
               @if (Session::has('message'))
                 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -82,6 +93,32 @@
         </div>
       </div>
     </section>
+    <!-- Modal export-->
+        <div class="modal fade" id="modalExport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ekspor data Inspeksi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form" action="/inspeksi/ekspor" method="post">
+                        @csrf
+                        <label for="selectDate" class="form-label">Pilih bulan</label>
+                        <select name="tanggalEkspor" class="form-select mb-3" aria-label="Default select example">
+                            @foreach($tanggalEkspor as $key=> $t)
+                            <option value="{{$t}}">{{$t}}</option>
+                            @endforeach
+                        </select>
+                        <div class="text-end">
+                            <button type="submit"class="btn btn-success">Ekspor data</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    <!-- end modal -->
     <div class="modal fade" id="modalInspeksi" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

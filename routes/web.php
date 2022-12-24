@@ -26,6 +26,7 @@ Route::put('/akun/{user}', 'UserController@update');
 Route::put('/akun/makeadmin/{user}', 'UserController@makeadmin');
 Route::get('/inventori', 'AparController@index')->name('inventori');
 Route::get('/inspeksi', 'FormController@index')->name('inspeksi');
+Route::post('/inspeksi/ekspor', 'FormController@ekspor');
 Route::put('/inspeksi/update', 'FormController@update');
 Route::delete('/inspeksi/delete', 'FormController@destroy');
 Route::get('/scan', 'HomeController@scan')->name('scan');
