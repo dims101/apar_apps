@@ -207,7 +207,7 @@
                             <div class="col">
                                 <div class="form-floating">
                                     <input type="text" name="barcode" class="form-control identitas" id="barcode" placeholder="QRCode" required>
-                                    <label for="barcode">QRCode</label>
+                                    <label for="barcode">Barcode</label>
                                 </div>                            
                             </div>
                             <div class="col">

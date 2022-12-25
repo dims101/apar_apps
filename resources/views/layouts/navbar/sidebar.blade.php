@@ -1,7 +1,7 @@
 
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
-
+@if(Auth::check())
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
@@ -47,5 +47,5 @@
   </li><!-- End Profile Page Nav -->
 
 </ul>
-
+@endif
 </aside><!-- End Sidebar-->

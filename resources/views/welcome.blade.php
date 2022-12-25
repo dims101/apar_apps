@@ -84,8 +84,9 @@
       <h2>Welcome to <span>APAR Inspection</span> Apps!</h2>
       <p>Sistem pengecekan APAR mengunakan QRCode!</p>
       <div class="d-flex">
-        <a href="/home" class="btn-get-started scrollto">Masuk untuk mulai pengecekan</a>
+        <a href="/home" class="btn-get-started scrollto my-3">Masuk untuk mulai pengecekan</a>
       </div>
+      <a href="/tamu" class="btn btn-secondary scrollto">Scan APAR tanpa masuk <i class="ri-share-forward-line"></i></a>
     </div>
   </section>
 

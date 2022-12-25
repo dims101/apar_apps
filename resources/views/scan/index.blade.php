@@ -27,16 +27,16 @@
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>    
     <script>
         function onScanSuccess(decodedText, decodedResult) {
-            // handle the scanned code as you like, for example:
-            // alert(`Barcode terbaca : ${decodedText}`,decodedResult);
-            // console.log(`Code matched = ${decodedText}`, decodedResult);
                 $('#result').val(decodedText);
                 let id = decodedText;         
-                // html5QrcodeScanner.clear().then(_ => {
                     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                     
-                    $.ajax({                        
+                    $.ajax({    
+                        @if(Auth::check())                  
                         url: "{{ route('validasi') }}",
+                        @else
+                        url: "{{ route('validasiTamu') }}",
+                        @endif
                         type: 'POST',            
                         data: {
                             _methode : "POST",
@@ -48,7 +48,11 @@
                             if(response.status == 1){
                                 alert(response.message);
                                 let qs = response.id;
-                                window.location.href = '/form/' + qs;
+                                @if(Auth::check())
+                                    window.location.href = '/form/' + qs;
+                                @else                                    
+                                    window.location.href = '/tamu/' + qs;
+                                @endif
                             }else{
                                 alert(response.message);
                             }
